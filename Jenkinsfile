@@ -14,23 +14,23 @@ pipeline{
         }
         stage("Code Build"){
             steps{
-                echo "Building"
-            docker_build("notes-app","latest")
-                echo "Build Successful"
+                script{
+                    docker_build("notes-app","latest", "DockerHubUser")
+                }
             }
         }
         stage("Push to DockerHub"){
             steps{
-                echo "Pushing"
-                docker_push("notes-app", "latest", "dockerHubCreds")
-                echo "Push Successful"
+                script{
+                    docker_push("notes-app", "latest", "deepeshbarod80")
+                }
             }
         }
         stage("Deploy"){
             steps{
-                echo "Deploying"
-                deploy_compose()
-                echo "Deploy Successful"
+                script{
+                   deploy_compose() 
+                }
             }
         }
         
