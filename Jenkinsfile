@@ -2,7 +2,7 @@
 
 pipeline{
     agent { label 'jenkins-slave'}
-    
+
     stages{
         stage("Code clone"){
             steps{
