@@ -35,6 +35,12 @@ pipeline{
                 }
             }
         }
-        
+        stage("Cleanup"){
+            steps{
+                script{
+                   docker_cleanup("notes-app", "latest", "DockerHubUser")
+                }
+            }
+        }
     }
 }
