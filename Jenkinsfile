@@ -11,35 +11,34 @@ pipeline{
                 script{
                     clone("https://github.com/deepeshbarod80/Django-CICD.git","main")
                 }
-                echo "Clone Successful"
+                echo "Cloned Successful"
             }
         }
         stage("Code Build"){
             steps{
+                echo "Building Code"
                 script{
                     docker_build("notes-app","latest", "DockerHubUser")
                 }
+                echo "Built code Successfully"
             }
         }
         stage("Push to DockerHub"){
             steps{
+                echo "Pushing Code"
                 script{
                     docker_push("notes-app", "latest", "DockerHubUser")
                 }
+                echo "Pushed Successfully"
             }
         }
         stage("Deploy"){
             steps{
+                echo "Deploying Code"
                 script{
                    docker_compose() 
                 }
-            }
-        }
-        stage("Cleanup"){
-            steps{
-                script{
-                   docker_cleanup.removeUnusedImages()
-                }
+                echo "Deployed Successfully"
             }
         }
     }
