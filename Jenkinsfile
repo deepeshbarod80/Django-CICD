@@ -38,7 +38,7 @@ pipeline{
         stage("Cleanup"){
             steps{
                 script{
-                   docker_cleanup.removeAllUnusedResources()
+                   docker_cleanup.removeUnusedImages()
                 }
             }
         }
