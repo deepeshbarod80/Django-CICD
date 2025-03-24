@@ -38,7 +38,7 @@ pipeline{
         stage("Cleanup"){
             steps{
                 script{
-                   docker_cleanup("notes-app", "latest", "DockerHubUser")
+                   docker_cleanup.removeAllUnusedResources("notes-app", "latest", "DockerHubUser", "DockerHubCred")
                 }
             }
         }
