@@ -39,6 +39,7 @@ pipeline{
             steps{
                 script{
                    docker_cleanup.removeAllUnusedResources()
+                   docker_cleanup.removeUnusedVolumes()
                 }
             }
         }
