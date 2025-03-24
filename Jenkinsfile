@@ -6,11 +6,11 @@ pipeline{
     stages{
         stage("Code clone"){
             steps{
+                echo "Clonning"
+                sh "whoami"
                 script{
                     clone("https://github.com/deepeshbarod80/Django-CICD.git","main")
                 }
-                echo "Clonning"
-                sh "whoami"
                 echo "Clone Successful"
             }
         }
