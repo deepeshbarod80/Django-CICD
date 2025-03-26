@@ -25,7 +25,7 @@ pipeline{
             steps{
                 echo "Pushing Code"
                 script{
-                    docker_push("notes-app", "latest", "DockerHubUser")
+                    docker_push("notes-app", "latest", "dockerHubUser")
                 }
                 echo "Pushed Successfully"
             }
