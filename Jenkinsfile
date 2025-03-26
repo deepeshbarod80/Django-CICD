@@ -17,9 +17,7 @@ pipeline{
         stage("Code Build"){
             steps{
                 echo "Building Code"
-                script{
-                    docker build("notes-app", "latest", "dockerHubUser")
-                }
+                sh "docker build -t notes-app:latest ."
                 echo "Built code Successfully"
             }
         }
@@ -27,7 +25,7 @@ pipeline{
             steps{
                 echo "Pushing Code"
                 script{
-                    docker_push("notes-app", "latest", "dockerHubUser")
+                    docker_push("dockerHubUser", "notes-app", "latest")
                 }
                 echo "Pushed Successfully"
             }
