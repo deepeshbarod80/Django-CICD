@@ -9,7 +9,7 @@ pipeline{
                 echo "Clonning"
                 sh "whoami"
                 script{
-                    clone("https://github.com/deepeshbarod80/Django-CICD.git","main")
+                    clone_checkout("https://github.com/deepeshbarod80/Django-CICD.git","main")
                 }
                 echo "Cloned Successful"
             }
